@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pocketcompare"
+version = "0.2.0"
+description = "Binding pocket comparison for protein engineering decisions"
+requires-python = ">=3.10"
+dependencies = [
+    "biopython>=1.83",
+    "requests>=2.31",
+    "numpy>=1.26",
+]
+
+[project.scripts]
+pocketcompare = "pocketcompare.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov>=4.0"]
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: tests that fetch real PDB structures (require network)",
+]
